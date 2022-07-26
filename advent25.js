@@ -1,23 +1,23 @@
 function canMouseEat(direction, game) {
-    const positionMouse = game.flatMap((array, indexArray) => array.flatMap((move, index)=> move === "m" ? [index, indexArray] : []))
+    const [indexX, indexY] = game.flatMap((array, indexArray) => array.flatMap((move, index)=> move === "m" ? [index, indexArray] : []))
     
     const moves = {
         "up": (game) => {
             if (game.length === 1) return false;     
-            const newMouse = game[positionMouse[1] - 1].map((move, index) => index === positionMouse[0] && move === "*" ? true : false)
+            const newMouse = game[indexY - 1].map((move, index) => index === indexX && move === "*" ? true : false)
             return newMouse.some(move => move)
         },
         "down": (game) => {
             if (game.length === 1) return false;     
-            const newMouse = game[positionMouse[1] + 1].map((move, index) => index === positionMouse[0] && move === "*" ? true : false)
+            const newMouse = game[indexY + 1].map((move, index) => index === indexX && move === "*" ? true : false)
             return newMouse.some(move => move)
         },
         "right": (game) => {
-            const newMouse = game[positionMouse[1]].map((move, index) => index === positionMouse[0] + 1 && move === "*" ? true : false)
+            const newMouse = game[indexY].map((move, index) => index === indexX + 1 && move === "*" ? true : false)
             return newMouse.some(move => move)
         },
         "left": (game) => {
-            const newMouse = game[positionMouse[1]].map((move, index) => index === positionMouse[0] - 1 && move === "*" ? true : false)
+            const newMouse = game[indexY].map((move, index) => index === indexX - 1 && move === "*" ? true : false)
             return newMouse.some(move => move)
         },
     };
@@ -66,10 +66,10 @@ console.log(canMouseEat("right", room3)) // false
 console.log(canMouseEat("left", room3)) // false
 
 const room4 = [
-    [" ", "m", " ", " ", "*"],
+    ["*", "m", " ", " ", " "],
 ]
 
-console.log(canMouseEat("up", room4)) // true
+console.log(canMouseEat("up", room4)) // false
 console.log(canMouseEat("down", room4)) // false
 console.log(canMouseEat("right", room4)) // false
-console.log(canMouseEat("left", room4)) // false
+console.log(canMouseEat("left", room4)) // true
