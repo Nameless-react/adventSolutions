@@ -1,0 +1,28 @@
+{
+  "name": "advent",
+  "version": "1.0.0",
+  "description": "",
+  "main": "advent1.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "vitest",
+    "coverage": "vites run --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nameless-react/adventSolutions.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nameless-react/adventSolutions/issues"
+  },
+  "homepage": "https://github.com/Nameless-react/adventSolutions#readme",
+  "devDependencies": {
+    "vitest": "^0.19.1"
+  },
+  "type": "module"
+}

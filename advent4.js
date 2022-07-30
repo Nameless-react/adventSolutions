@@ -1,4 +1,4 @@
-function createXmasTree(height) {
+export default function createXmasTree(height) {
     const base = `${"_".repeat(height - 1)}#${"_".repeat(height - 1)}`
     let pieces = ""
     for (let i = 0; i < height; i++) {
@@ -8,6 +8,3 @@ function createXmasTree(height) {
     const christmasTree = Array.from(pieces).reverse().join("")
     return christmasTree + base + "\n" + base 
 }
-
-console.log(createXmasTree(20))
-
