@@ -8,15 +8,15 @@ export default function decodeNumber(symbols) {
     "!": 100
     }
     if (symbols.length === 1) return listSymbols[symbols]
-    if (Object.keys(listSymbols).includes(symbols)) return NaN
+   
+    if (Array.from(symbols).some(symbol => !Object.keys(listSymbols).includes(symbol))) return NaN
 
     for (let i = 0; i < symbols.length; i++) {
-    if (listSymbols[symbols[i]] < listSymbols[symbols[i + 1]]) {
-        operacion -= listSymbols[symbols[i]] 
-    } else {
-        operacion += listSymbols[symbols[i]]
-    }
-
+        if (listSymbols[symbols[i]] < listSymbols[symbols[i + 1]]) {
+            operacion -= listSymbols[symbols[i]] 
+        } else {
+            operacion += listSymbols[symbols[i]]
+        }
     }
 
     return operacion
