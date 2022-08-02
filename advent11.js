@@ -1,4 +1,4 @@
-function shouldBuyFidelity(times) {
+export default function shouldBuyFidelity(times) {
     const normal = times * 12;
     let fidelity = 250;
     for (let i = 0; i < times; i++) {
@@ -7,9 +7,4 @@ function shouldBuyFidelity(times) {
     }
     if (fidelity < normal) return true;
     return false;
-}
-
-
-console.log(shouldBuyFidelity(1));
-console.log(shouldBuyFidelity(3));
-console.log(shouldBuyFidelity(100));
+};

@@ -4,7 +4,6 @@ export default function checkSledJump(heights) {
 
 
     for (let i = 0; i < indexMax; i++) {
-        console.log(heights[i], heights[i + 1])
         if (heights[i] === heights[i + 1]) return false;
         if (heights[i] > heights[i + 1]) return false;
     }

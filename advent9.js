@@ -1,4 +1,4 @@
-function groupBy(collection, it) {
+export default function groupBy(collection, it) {
     let newCollection = {};
     if (it === "length") {
         collection.forEach(item => newCollection[item.length] = [...(newCollection[item.length] || []), item]);
@@ -16,17 +16,4 @@ function groupBy(collection, it) {
         collection.forEach(item => newCollection[it(item)] = [...(newCollection[it(item)] || []), item]);
         return newCollection
     }
-}
-
-console.log(groupBy([6.1, 4.2, 6.3], Math.floor))
-console.log(groupBy(["one", "two", "three"], "length"))
-console.log(groupBy([{age: 23}, {age: 24}], 'age'))
-console.log(groupBy(
-    [1397639141184, 1363223700000],
-    timestamp => new Date(timestamp).getFullYear()
-  ))
-console.log(groupBy([
-    { title: 'JavaScript: The Good Parts', rating: 8 },
-    { title: 'Aprendiendo Git', rating: 10 },
-    { title: 'Clean Code', rating: 9 },
-  ], 'rating'))
+};
