@@ -1,0 +1,3 @@
+function canReconfigure(from, to) {
+
+}

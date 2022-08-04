@@ -3,14 +3,20 @@ export default function checkSledJump(heights) {
     if (indexMax === heights.length - 1 || indexMax === 0) return false
 
 
-    for (let i = 0; i < indexMax; i++) {
-        if (heights[i] === heights[i + 1]) return false;
-        if (heights[i] > heights[i + 1]) return false;
-    }
-    
-    
-    for (let i = indexMax; i < heights.length; i++) {
-        if (heights[i] < heights[i + 1]) return false
-    }
-    return true
-}
+    const up = heights.every((height, index) => {
+        if (index < indexMax) {
+            if (heights[index] === heights[index + 1] || heights[index] > heights[index + 1]) return false;    
+        }
+        return true
+    })
+
+    const down = heights.every((height, index) => {
+        if (indexMax <= index) {
+            console.log(index, indexMax);
+            if (height < heights[index + 1]) return false;
+        }
+        return true; 
+    })
+
+    return up && down;
+};
