@@ -1,7 +1,7 @@
 import { it, expect } from "vitest";
 import groupBy from "../advent9";
 
-it("", () => {
+it("Group an array by the second parameter", () => {
     expect(groupBy([6.1, 4.2, 6.3], Math.floor)).toEqual({
         4: [4.2],
         6: [6.1, 6.3]
